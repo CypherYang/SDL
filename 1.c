@@ -13,21 +13,20 @@ int main() {
     }
 
     // 2. 建立窗口
-    //窗口名稱 窗口座標 (x,y) 窗口大小(w ,h) 窗口參數（可不可以變）...
     SDL_Window *win = SDL_CreateWindow
     (
         "Hello",//畫面標題
-        SDL_WINDOWPOS_CENTERED,
-        SDL_WINDOWPOS_CENTERED,
-        W, H,
-        SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE //窗口可以做什麼
+        SDL_WINDOWPOS_CENTERED,//視窗左上x座標
+        SDL_WINDOWPOS_CENTERED,//視窗左上y座標
+        W, H,//視窗大小
+        SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE //flags — 視窗行為/能力設定
     );
     if(win == NULL)
     {
         SDL_Log("Window creation failed: %s", SDL_GetError());
         return -1;
     }
-    SDL_Delay(3000);//Xcode 預設不會顯示
+    SDL_Delay(3000);//Xcode 預設不會顯示(if Windows就會顯示)
     SDL_DestroyWindow(win);
     SDL_Quit();
 }
